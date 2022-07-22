@@ -1,0 +1,62 @@
+<div class="watchLeftColumn">
+    <video id='videoElementID' class='videoPlayer' controls autoPlay='false' controlsList='nodownload'>
+        <source src='assets/videos/business.mp4' type='video/mp4'>
+    </video>
+
+    <div class='videoInfo'>
+        <h1>{{videoTitle}}</h1>
+
+        <div class='bottomSection'>
+            <span class='viewCount'>{{viewCount}} views</span>
+            <div class='controls'>
+                <button class="likeButton" (click)="likeVideo()">
+                    <fa-icon [icon]="faThumbsUp"></fa-icon>
+                    <span class="text">{{likesCount}}</span>
+                </button>
+                <button class="dislikeButton" (click)="dislikeVideo()">
+                    <fa-icon [icon]="faThumbsDown"></fa-icon>
+                    <span class="text">{{dislikesCount}}</span>
+                </button>
+                <button type="button" class="ml-2" data-toggle="modal" data-target="#shareModal">
+                    <fa-icon [icon]="faShare"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class='secondaryInfo'>
+        <div class='topRow'>
+            <a id='profileBtn'>
+                <img src={{profilePic}} class='profilePicture'>
+            </a>
+
+            <div class='uploadInfo'>
+                <span class='owner'>
+                    <div routerLink = '/profile'>
+                        {{uploadedBy}}
+                    </div>
+                </span>
+                <span class='date'>Published on {{uploadDate}}</span>
+            </div>
+            <!-- actionButton -->
+            <div class={{actionDivClass}}>
+                <button (click)="subscribe()" class={{actionBtnClass}}>
+                    <span class='text'>{{actionBtnText}} {{Subscribers.subscribersCount(uploadedBy)}}</span>
+                </button>
+            </div>  
+            <!-- deleteActionButton -->
+            <div class={{deleteActionDivClass}}>
+                <button class={{deleteActionBtnClass}} onclick='$action'>
+                    <span class='text'>{{deleteActionBtnText}}</span>
+                </button>
+            </div>
+        </div>
+
+        <div class='descriptionContainer'>
+            {{videoDescription}}
+        </div>
+
+    </div>
+
+    <app-comment-section></app-comment-section>
+</div>

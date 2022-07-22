@@ -1,0 +1,23 @@
+<div class="videoGrid {{large}}">
+    <div routerLink='/watch' *ngFor="let videoItem of videoArray">
+        <div class="videoGridItem {{gridSmall}}">
+            <div class="thumbnail">
+                <img src={{getThumbnailData(videoItem.id)}}>
+                <div class="duration">
+                    <span>{{ videoItem.duration }}</span>
+                </div>
+            </div>
+            <div class="details">
+                <h3 class="title {{titleSmall}}">{{ videoItem.title }}</h3>
+                <span class="username">{{ videoItem.uploadedBy }}</span>
+                <div class="stats">
+                    <span class="viewCount">{{ videoItem.views }} views - </span>
+                    <span class="timeStamp">{{ videoItem.uploadDate }}</span>
+                </div>
+                <span *ngIf="showDescription" class="description">{{ videoItem.description }}</span> 
+            </div>
+        </div>
+    </div>
+</div>
+
+

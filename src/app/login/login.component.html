@@ -1,0 +1,32 @@
+<div class="signInContainer">
+
+    <div class="column bg-white">
+        <div class="header">
+            <div id="headerTitle">
+                <img src="assets\images\icons\sanjivaniLogo.png" title="logo" alt="Site logo">Sanjivani
+            </div>
+            <p>Sign In to continue to Sanjivani</p>
+        </div>
+
+        <div class="loginForm">
+
+            <!-- {{ contactForm.value.username | json }} -->
+            <div class="alert alert-danger" *ngIf="errorMsg">
+                {{ errorMsg }}
+            </div>
+
+            <form #contactForm="ngForm" *ngIf="!loggedIn" (ngSubmit)="onSubmit()" novalidate>
+                <input type="text" name="username" class="form-control" placeholder="Username" value="" [(ngModel)]="userModel.username" #nameInput="ngModel" required autocomplete="off">
+                <p *ngIf="nameInput.invalid && nameInput.touched"><small class="text-danger">Username is required</small></p>
+                <input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="userModel.password" #passInput="ngModel" required>
+                <p *ngIf="passInput.invalid && passInput.touched"><small class="text-danger">Please fill out this field.</small></p>
+                <input type="submit" name="submitButton" value="SUBMIT" [disabled]="contactForm.invalid">
+            </form>
+        </div>
+
+        <div class="signInMessage" routerLink="/signUp">Need an account? Sign up here!</div>
+    
+    </div>
+
+</div>
+<!-- http://103.83.192.122:8080/login -->

@@ -1,0 +1,164 @@
+<app-header></app-header>
+<div id="mainSectionContainer">
+    <div id="mainContentContainer">
+        <div class="d-flex flex-column mainContainer">
+            <app-profile></app-profile>
+            <div class="mt-3">
+                <div class="row pb-3">
+            
+                    <div class="col">
+                        <div id="notificationCard" class="card">
+                            <div class="card-header bg-info text-white text-center">
+                                <div class="card-title">DELETE REQUESTS</div>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-info btn-sm text-white" data-toggle="collapse" data-target="#notificationBody">
+                                        <fa-icon [icon]="plusMinus1"></fa-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="notificationBody" class="collapse show">
+                                <div class="card-body">
+                                    <div class="largeVideoGridContainer">
+                                        <form method="post">
+                                            <table class="table" id="notificationTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Video</th>
+                                                        <th>Requested By</th>
+                                                        <th> </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let videoItem of req_videoList;let i = index">
+                                                        <td>
+                                                            <div class="videoGrid {{large}}">
+                                                                <div routerLink='/watch'>
+                                                                    <div class="videoGridItem {{gridSmall}}">
+                                                                        <div class="thumbnail">
+                                                                            <img src={{getThumbnailData(videoItem.id)}}>
+                                                                            <div class="duration">
+                                                                                <span>{{ videoItem.duration }}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="details">
+                                                                            <h3 class="title {{titleSmall}}">{{ videoItem.title }}</h3>
+                                                                            <span class="username">{{ videoItem.uploadedBy }}</span>
+                                                                            <div class="stats">
+                                                                                <span class="viewCount">{{ videoItem.views }} views - </span>
+                                                                                <span class="timeStamp">{{ videoItem.uploadDate }}</span>
+                                                                            </div>
+                                                                            <span *ngIf="showDescription" class="description">{{ videoItem.description }}</span> 
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+
+                                                        <td>
+                                                            {{delete_requests[i].requestedBy}}
+                                                        </td>
+
+                                                        <td>
+                                                            <button style="font-size: 0.8rem;" (click)="approveRequest(videoItem.id)" type="submit" name="approve42" class="btn btn-primary mr-2 mt-2">Approve</button>
+                                                            <button style="font-size: 0.8rem;" (click)="rejectRequest(videoItem.id)" type="submit" name="reject42" class="btn mt-2">Reject</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="pb-3">
+                    <div id="editCategoryCard" class="card">
+                        <div class="card-header bg-info text-white text-center">
+                            <div class="card-title">CATEGORY</div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#categoryBody">
+                                    <fa-icon [icon]="plusMinus2"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="categoryBody" class="collapse show">
+                            <div class="card-body">
+                                <form #editCategory = "ngForm" (ngSubmit)="categoryFormSubmit(editCategory)" id="categoryForm" novalidate>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" name="newCategory" id="newCategory" placeholder="Enter a new category..." [(ngModel)]="newCategory" #newCategoryInput = "ngModel" required>
+                                        <div class="input-group-append">
+                                            <button style="z-index:0" class="btn btn-primary" type="submit" name="addCategory" [disabled]="editCategory.invalid">ADD</button>
+                                        </div>
+                                    </div> 
+                                </form>
+                                <form>
+                                    <p *ngIf="newCategoryInput.invalid && newCategoryInput.touched"><small class="text-danger">Please fill out this field.</small></p>
+                                
+                                    <table class='table table-hover'>
+                                        <tbody *ngFor="let item of categoryLists; let i=index">
+                                            <tr>
+                                                <td>
+                                                    <input class="disableCheck" type="checkbox" id="{{item.category}}" name="{{item.category}}" value="{{item.category}}" [(ngModel)]="categoryNewName" #inputCategoryNewName="ngModel" [checked]="checked">
+                                                    <label id="hidelabel{{item.category}}" for="{{item.category}}">{{item.category}}</label>
+                                                    <button (click)="renameCategory()" id="save{{item.category}}" class="btn btn-sm text-primary edit-tools" name="save{{item.category}}"><fa-icon [icon]="faArrowUp"></fa-icon></button>
+                                                    <button (click)="cancelAction(item.category, 'hidelabel'+item.category, 'save'+item.category, 'cancel'+item.category)"  id="cancel{{item.category}}" type="button" class="btn btn-sm text-danger edit-tools" name="cancel{{item.category}}"><fa-icon [icon]="faTimes"></fa-icon></button>
+                
+                                                    <button (click)="editAction(item.category, 'hidelabel'+item.category, 'save'+item.category, 'cancel'+item.category)" type="button" class="btn categoryFeature1" name="edit{{item.category}}"><fa-icon [icon]="faEdit"></fa-icon></button>
+                                                    
+                                                    <a onclick="removeCategory()" class="btn categoryFeature2"><fa-icon [icon]="faTrash"></fa-icon></a>
+                                                    <button hidden="hidden" id="special{{item.category}}" type="submit" class="btn deleteCategorybtn" name="delete{{item.category}}"></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                                
+                                <div class="pt-3">
+                                    <input type="checkbox" id="checkAll" name="checkAll" value="checkAll"><label for="checkAll"> Check All</label>
+                                    <a id="removeListItem" class="btn btn-danger text-white categoryTool2"><i class="far fa-trash-alt"></i> Delete</a>
+                                    <button id="deleteCategory" hidden="hidden" type="submit" name="deleteCategory" class="btn">Delete</button>
+                                </div>
+                                <!-- </form> -->
+                            </div>
+                        </div> 
+                    </div> 
+                    <!-- edit -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="col">
+        <app-video-item [gridSmall]=gridSmall [large]=large [titleSmall]=titleSmall [videoArray]=req_videoList [showDescription]=showDescription></app-video-item>
+    </div>
+    <div class="col">
+        <div id="requestedByItem" *ngFor="let item of delete_requests">
+            <td>{{item.requestedBy}}</td>
+            <td><button style="font-size: 0.8rem;" type="submit" name="approve42" class="btn btn-primary mr-2 mt-2">Approve</button><button style="font-size: 0.8rem;" type="submit" name="reject42" class="btn mt-2">Reject</button></td>
+                
+        </div>
+    </div> -->
+

@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist\\sanjivani-video-tube",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

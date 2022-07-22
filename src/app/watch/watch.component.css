@@ -1,0 +1,160 @@
+/* #mainSectionContainer {
+    padding-top: 28px;
+    display: flex;
+} */
+
+#mainSectionContainer.leftPadding {
+    padding-left: 73px !important;
+}
+
+#mainContentContainer {
+    padding: 0px 30px;
+    display: flex;
+    flex: 1;
+}
+
+.videoGrid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.suggestions .videoGridItem {
+    display: flex;
+    height: auto;
+}
+
+.videoGridItem {
+    height: 200px;
+    margin-right: 4px;
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+
+.videoGridItem .thumbnail {
+    width: 210px;
+    height: 118px;
+    position: relative;
+}
+
+.suggestions .videoGridItem .thumbnail {
+    margin-right: 8px;
+}
+
+.videoGridItem .thumbnail img {
+    width: 100%;
+    height: 100%;
+}
+
+.videoGridItem .thumbnail .duration {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    margin: 4px;
+    color: #fff;
+    background-color: rgba(17,17,17,0.8);
+    opacity: 0.8;
+    padding: 2px 4px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+.videoGridItem .details {
+    padding-right: 24px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+}
+
+.suggestions .videoGridItem .details {
+    padding-right: 0;
+    flex: 1;
+}
+
+.videoGridItem .details .title {
+    margin: 8px 0;
+    max-height: 32px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #212529;
+}
+
+.videoGridItem .details .username,
+.videoGridItem .details .stats {
+    color: rgba(17,17,17,0.6);
+    font-size: 13px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.videoGridHeader {
+    display: flex;
+    margin: 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.videoGridHeader div {
+    flex: 1;
+}
+
+.videoGrid.large {
+    flex-direction: column;
+    flex: 1;
+}
+
+.videoGrid.large .videoGridItem {
+    height: auto;
+    display: flex;
+}
+
+.videoGrid.large .videoGridItem .thumbnail {
+    width: 266px;
+    height: 138px;
+    margin-right: 16px;
+}
+
+.videoGrid.large .videoGridItem .details {
+    max-width: 600px;
+    flex: 1;
+}
+
+.videoGrid.large .videoGridItem .details .title {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.videoGridItem .details .description {
+    color: rgba(17,17,17,0.6);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.largeVideoGridContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.videoGridHeader .right {
+    text-align: right;
+}
+
+.videoGridHeader a {
+    color: rgba(17,17,17,0.6);
+}
+
+.videoGridHeader a:after {
+    content: ' |'
+}
+
+.videoGridHeader a:last-child:after {
+    content: ''
+}

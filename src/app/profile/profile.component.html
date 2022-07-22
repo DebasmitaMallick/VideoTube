@@ -1,0 +1,55 @@
+<div class="profileContainer">
+    <div style='display:none' class='coverPhotoContainer'>
+        <img src='' class='coverPhoto'>
+        <span class='channelName'>{{name}}</span>
+    </div>
+    <div class='profileHeader'>
+        <div class='userInfoContainer'>
+            <img class='profileImage' src='./assets/images/profilePictures/default.png'>
+            <div class='userInfo'>
+                <span class='title'>{{name}}</span>
+                <span class='subscriberCount'>{{subCount}} subscribers</span>
+            </div>
+        </div>
+
+        <div class='buttonContainer'>
+            <div class='buttonItem'>    
+                
+            </div>
+        </div>
+    </div>
+
+    <ul class='nav nav-tabs' role='tablist'>
+        <li class='nav-item'>
+            <a class='nav-link active' id='videos-tab' data-toggle='tab' href='#videos' role='tab' aria-controls='videos' aria-selected='true'>VIDEOS</a>
+        </li>
+        <li class='nav-item'>
+            <a class='nav-link' id='about-tab' data-toggle='tab' href='#about' role='tab' aria-controls='about' aria-selected='false'>ABOUT</a>
+        </li>
+    </ul>
+
+    <div class='tab-content channelContent'>
+        <div class='tab-pane fade show active' id='videos' role='tabpanel' aria-labelledby='videos-tab'>
+            <app-video-item [videoArray]=videoList></app-video-item>
+        </div>
+        <div class='tab-pane fade' id='about' role='tabpanel' aria-labelledby='about-tab'>
+            <div class='section'>
+                <div class='title'>
+                    <span>Details</span>
+                </div>
+                <div class='values'>
+                    <span>Name: {{userDetails.firstName+" "+userDetails.lastName}}</span>
+                    <span>Username: {{userDetails.username}}</span>
+                    <span>Role: {{userDetails.role}}</span>
+                    <span>Subscribers: {{subscribers}}</span>
+                    <span>Total views: {{views}}</span>
+                    <span>Sign up date: {{userDetails.signUpDate}}</span>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class='values' *ngFor="let key of objectKeys(userDetails)"></div> -->
+<!-- <span>{{key + ' : ' + userDetails[key]}}</span> -->

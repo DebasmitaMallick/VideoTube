@@ -1,0 +1,66 @@
+<div id="mainSectionContainer" style="padding-left: 208px">
+    <div id="mainContentContainer">
+        <script src="assets/js/editVideoActions.js"></script>
+        <div class="editVideoContainer column">
+
+            <div class="message">
+            </div>
+
+            <div class="topSection">
+                <video id='videoElementID' class='videoPlayer' controls controlsList='nodownload'>
+                    <source src='assets/images/vidoe.mp4' type='video/mp4'>
+                    Your browser does not support the video tag
+                </video>
+                <div class='thumbnailItemsContainer'>
+                    <div *ngFor="let item of req_thumbnaillist" class='thumbnailItem {{item.selected}}' onclick='setNewThumbnail(247, 228, this)'>
+                        <img src={{item.filePath}}>
+                    </div>
+                    <!-- <div class='thumbnailItem ' onclick='setNewThumbnail(248, 228, this)'>
+                        <img src='uploads/videos/thumbnails/228-620cda5b4a6da.jpg'>
+                    </div>
+                    <div class='thumbnailItem ' onclick='setNewThumbnail(249, 228, this)'>
+                        <img src='uploads/videos/thumbnails/228-620cda5c32061.jpg'>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- <div class="bottomSection">
+                <form method="post" #userForm = "ngForm">
+                    <div class='form-group'>
+                        <input class='form-control' type='text' placeholder='Title' name='titleInput'  required #title="ngModel" [(ngModel)] = "title">
+                        <small *ngIf="title.invalid && title.touched" class="text-danger">This Field is Required</small>
+                    </div>
+                    <div class='form-group'>
+                        <textarea class='form-control' placeholder='Description' name='descriptionInput'
+                            rows='3'  required #description="ngModel" [(ngModel)] = "description">Astrology</textarea>
+                        
+                        <small *ngIf="description.invalid && description.touched" class="text-danger">This Field is Required</small>    
+                    </div>
+                    <div class='form-group'>
+                        <select class='form-control' name='privacyInput' required #privacy="ngModel" [(ngModel)] = "privacyinput">
+                            <option value='0'>Private</option>
+                            <option value='1' selected='selected'>Public</option>
+                        </select>
+
+                        <small *ngIf="privacy.invalid && privacy.touched" class="text-danger">This Field is Required</small>  
+                    </div>
+                    <div class='form-group'>
+                        <select class='form-control' name='categoryInput' required #category="ngModel" [(ngModel)] = "categoryInput">
+                            <option value='71'>Business</option>
+                            <option value='72'>Sports</option>
+                            <option value='73'>Education</option>
+                            <option value='116'>Social</option>
+                            <option selected='selected' value='117'>Astrology</option>
+                            <option value='118'>Technology</option>
+                            <option value='119'>Automobile</option>
+                            <option value='120'>Fashion &amp; Beauty</option>
+                            <option value='121'>Food</option>
+                            <option value='124'>Police</option>
+                            <option value='126'>Random</option>
+                        </select>
+
+                        <small *ngIf="category.invalid && category.touched" class="text-danger">This Field is Required</small>  
+                    </div>
+                    <button type='submit' class='btn btn-primary' name='saveButton'>Save</button>
+                </form>
+            </div> -->

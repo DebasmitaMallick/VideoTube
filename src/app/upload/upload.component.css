@@ -1,0 +1,30 @@
+/* #mainSectionContainer {
+    padding-top: 56px;
+    display: flex;
+} */
+
+#mainSectionContainer.leftPadding {
+    padding-left: 73px !important;
+}
+
+#mainContentContainer {
+    padding: 0px 30px;
+    display: flex;
+    flex: 1;
+}
+
+.column {
+    flex-grow: 1;
+    background-color: #fff;
+    min-height: 300px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+}
+
+.section {
+    height:10%;
+    width: 70%;
+    margin: 5rem auto 0 auto;
+    overflow-x: hidden;
+}
+

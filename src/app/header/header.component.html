@@ -1,0 +1,53 @@
+<div id="pageContainer">
+
+    <div id="mastHeadContainer">
+        <button type="button" class="text-dark" (click)="navToggle()"><fa-icon [icon]="faNavicon" class="navShowHide"></fa-icon></button>
+        
+        <a class="logoContainer" routerLink="/">
+        <img src="./assets/images/icons/sanjivaniLogo.png" title="logo" alt="Site logo">
+        </a>
+        <div id="backIcon" class="navitem-display-none"><img src="https://img.icons8.com/ios/24/000000/left.png"/></div>
+        <div class="searchBarContainer">
+            <form action="" method="GET">
+                <input type="text" class="searchBar" name="term" placeholder="Search...">
+                <button class="searchButton">
+                    <img src="assets/images/icons/search.png">
+                </button>
+            </form>
+        </div>
+        <div id="searchIcon" class="navitem-display-none"><img src="assets/images/icons/search.png"></div>
+        <div class="rightIcons">
+            <a routerLink = '/upload'>
+                <img class="upload" src="assets/images/icons/upload.png">
+            </a>
+            <a routerLink='/login' *ngIf="!login">
+                <span class='signInLink'>SIGN IN</span>
+            </a>
+            <a class="profileBtnTest" id='profileBtn' (click)="showDropDownItems()"><img src='assets\images\profilePictures\default.png' class='profilePicture' *ngIf="login" #menu></a>
+            <ul id="profileDropdown" class="list-group" *ngIf="isMenuOpen">
+                <a routerLink="/admin" class="list-group-item list-group-item-action">
+                    <fa-icon [icon]="faUserCircle" id="dashboardIcon"></fa-icon> Dashboard
+                </a>
+                <!-- <a href="<?= "profile.php?username=$usernameLoggedIn" ?>" class="list-group-item list-group-item-action"><i id="dashboardIcon" class="fas fa-user-circle"></i> Profile</a> -->
+                <a routerLink = "/settings" class="list-group-item list-group-item-action"><img src="assets/images/icons/settings.png" alt=""> Setting</a>
+                <li (click)="showAlert()" class="list-group-item list-group-item-action"><img src="assets/images/icons/logout.png" alt=""> Logout</li>
+                
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="sideNavContainer" style="width: 208px;">
+        <div id="nav-ham" style="display: none">
+        </div>
+        <div class='navigationItems'>
+            <div *ngFor="let item of categoryLists" class='navigationItem'>
+                <a routerLink={{item.link}}>
+                    <img src={{item.icon}}>
+                     <span>{{item.category}}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="mainSectionContainer">
+        <div id="mainContentContainer">

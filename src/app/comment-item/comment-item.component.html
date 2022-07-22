@@ -1,0 +1,20 @@
+<div class='comment'>
+    <a id='profileBtn'>
+        <img src={{profilePic}} class='profilePicture'>
+    </a>
+
+    <div class='mainContainer'>
+
+        <div class='commentHeader'>
+            <div routerLink = '/profile'>
+                <span class='username'>{{item.postedBy}}</span>
+            </div>
+            <span class='timestamp'>{{item.datePosted}}</span>
+        </div>
+
+        <div class='body'>
+            {{item.body}}
+        </div>
+    </div>
+
+</div>

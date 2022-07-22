@@ -1,0 +1,15 @@
+<!-- {{ Comment.req_Comments | json }} -->
+<form #postCommentForm = "ngForm" (ngSubmit)="postComment(postCommentForm.value.newComment)" novalidate>
+    <div class='commentForm'>
+        <a id='profileBtn'>
+            <img src={{profilePic}} class='profilePicture'>
+        </a>
+        <textarea class='commentBodyClass commentDeactive' name="newComment" placeholder='Add a public comment' [(ngModel)]="newComment" #newCommentInput = "ngModel" required></textarea>
+        <span class="cancelComment" #cancelComment (click)="toggleReply(cancelComment)">
+            <span class="text">Cancel</span>
+        </span>
+        <button class='postComment' type='submit' [disabled]="postCommentForm.invalid">
+            <span class='text'>{{buttonTxt}}</span>
+        </button>
+    </div>
+</form>

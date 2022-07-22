@@ -1,0 +1,14 @@
+<div id="requestStatusBody" class="collapse show">
+    <div class="card-body">
+        <div class="row">
+            <div class="largeVideoGridContainer col">
+                <app-video-item [gridSmall]=gridSmall [large]=large [titleSmall]=titleSmall [videoArray]=req_videoList [showDescription]=showDescription></app-video-item>
+            </div>
+            <div class="col">
+                <h5 *ngFor="let item of req_status">
+                    <span id="request-badge" class="badge badge-{{item.badge}}">{{item.status}}</span>
+                </h5>
+            </div> 
+        </div>
+    </div>
+</div>

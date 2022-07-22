@@ -1,0 +1,6 @@
+#mainSectionContainer{
+    padding: 2rem 1.5rem 0 15rem;
+}
+#mainSectionContainer .mainContainer{
+    width:100%;
+}

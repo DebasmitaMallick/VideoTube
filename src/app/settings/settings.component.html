@@ -1,0 +1,42 @@
+<app-header></app-header>
+<section class="section1">
+    <p>User details</p>
+    <form #settingform="ngForm">
+        <div class='form-group'>
+            <input class='form-control' type='text' placeholder='firstname' name='firstnameInput' [(ngModel)]="userModel.firstName" #firstnameInput="ngModel" required>
+            <small *ngIf="firstnameInput.invalid && firstnameInput.touched" class="text-danger">firstname is Required</small> 
+        </div>
+        <div class='form-group'>
+            <input class='form-control' type='text' placeholder='lastname' name='lastnameInput' [(ngModel)]="userModel.lastName" #lastnameInput="ngModel" required>
+            <small *ngIf="lastnameInput.invalid && lastnameInput.touched" class="text-danger">lastname is Required</small> 
+        </div>
+        <!-- <div class='form-group'>
+            <input class='form-control' type='password' placeholder='password' name='passwordInput' [(ngModel)]="userModel.password" #passwordInput="ngModel" required>
+            <small *ngIf="passwordInput.invalid && passwordInput.touched" class="text-danger">password is Required</small> 
+        </div> -->
+        <div class='form-group'>
+            <input class='form-control' type='email' placeholder='email' name='emailInput' [(ngModel)]="userModel.email" #emailInput="ngModel" required>
+            <small *ngIf="emailInput.invalid && emailInput.touched" class="text-danger">email is Required</small> 
+        </div>
+        <button type='submit' class='btn btn-primary mx-1' name='uploadButton' [disabled]="saveform.invalid">save</button>
+    </form>
+</section>
+
+<section class="section2 my-5">
+    <p>Update password</p>
+    <form (ngSubmit)="submitForm()" #saveform="ngForm">
+        <div class='form-group'>
+            <input class='form-control' type='password' placeholder='Old password' name='passwordInput' [(ngModel)]="password" #passwordInput="ngModel" required>
+            <small *ngIf="passwordInput.invalid && passwordInput.touched" class="text-danger">password is required</small> 
+        </div>
+        <div class='form-group'>
+            <input class='form-control' type='password' placeholder='New password' name='passwordInput' [(ngModel)]="password" #passwordInput="ngModel" required>
+            <small *ngIf="passwordInput.invalid && passwordInput.touched" class="text-danger">password is required</small> 
+        </div>
+        <div class='form-group'>
+            <input class='form-control' type='password' placeholder='Confirm new password' name='passwordInput' [(ngModel)]="password" #passwordInput="ngModel" required>
+            <small *ngIf="passwordInput.invalid && passwordInput.touched" class="text-danger">password is required</small> 
+        </div>
+        <button type='submit' class='btn btn-primary mx-1' name='uploadButton' [disabled]="saveform.invalid" (click)="submitForm()">save</button>
+    </form>
+</section>

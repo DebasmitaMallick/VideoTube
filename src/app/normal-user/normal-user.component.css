@@ -1,0 +1,51 @@
+#privilegesCard .card-title,
+#requestStatusCard .card-title{
+    display: inline-block !important;
+}
+#privilegesCard .card-tools,
+#requestStatusCard .card-tools{
+    position: absolute !important;
+    display: inline-block !important;
+    right: 24px !important;
+}
+#privilegesCard,#requestStatusCard{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.normalUserInfo{
+    margin-right: 1px !important;
+    margin-left: 1px !important;
+}
+/* .largeVideoGridContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .videoGrid.large {
+    flex-direction: column;
+    flex: 1;
+} */
+/* .videoGrid {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+/* .videoGrid.large .videoGridItem {
+    height: auto;
+    display: flex;
+} */
+
+/* .videoGrid.large .videoGridItem .thumbnail{
+    width: 6rem !important;
+    height: 4rem !important;
+} */
+
+/* .videoGridItem.gridSmall{
+	margin-bottom: 5px !important;
+}
+.title.titleSmall{
+	margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 15px !important;
+} */

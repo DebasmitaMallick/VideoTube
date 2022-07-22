@@ -1,0 +1,24 @@
+.videoGridHeader {
+    display: flex;
+    margin: 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.videoGridHeader div {
+    flex: 1;
+}
+
+.videoGrid.large {
+    flex-direction: column;
+    flex: 1;
+}
+.videoGrid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.videoGrid.large .videoGridItem {
+    height: auto;
+    display: flex;
+}

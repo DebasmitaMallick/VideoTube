@@ -1,0 +1,8 @@
+<div *ngFor="let comment of comments">
+    <ul>
+     <li>
+       {{comment.text}}
+       <demoComments [comments]="comment.comments" *ngIf="comment.comments"></demoComments>
+     </li>
+    </ul>
+  </div>

@@ -1,0 +1,50 @@
+<div *ngFor="let item of commentsArr" class='itemContainer'>
+    <div class='comment'>
+        <a id='profileBtn'>
+            <img src={{profilePic}} class='profilePicture'>
+        </a>
+    
+        <div class='mainContainer'>
+    
+            <div class='commentHeader'>
+                <div routerLink = '/profile'>
+                    <span class='username'>{{item.postedBy}}</span>
+                </div>
+                <span class='timestamp'>{{item.datePosted}}</span>
+            </div>
+    
+            <div class='body'>
+                {{item.body}}
+            </div>
+        </div>
+    
+    </div>
+    <!-- $(currentElement).parent().parent().find( '.replyCommentForm' ).first().toggleClass('hidden'); -->
+    <div class="controls">
+        <button class="" #toggleReplyElement (click)="toggleReply(toggleReplyElement)">
+            <span class="text">REPLY</span>
+        </button>
+        <span class="likesCount"></span>
+        <button class="likeButton" [ngClass]="{btnActive: Likes.commentIsLiked(username, item.id)}" (click)="likeComment(item.id)">
+            <fa-icon [icon]="faThumbsUp"></fa-icon>
+            <span class="text">{{Likes.commentLikesCount(item.id)}}</span>
+        </button>
+        <button class="dislikeButton" [ngClass]="{btnActive: Dislikes.commentIsdisliked(username, item.id)}" (click)="dislikeComment(item.id)">
+            <fa-icon [icon]="faThumbsDown"></fa-icon>
+            <span class="text">{{Dislikes.commentdislikesCount(item.id)}}</span>
+        </button>
+    </div>
+
+    <div class="replyCommentForm hidden">
+        <comment-form [buttonTxt]=buttonTxt [profilePic]=profilePic (newCommentEvent)="postComment($event, item.id)"></comment-form>
+    </div>
+
+    <span *ngIf="Comment.numberOfResponses(item.id)" class='repliesSection viewReplies' #viewReplyElement (click)="showReplySection(viewReplyElement)">
+        View reply
+    </span>
+    
+    <div class="hiddenReply repliesSection hidden">
+        
+        <comment [commentsArr]=Comment.getResponses(item.id)></comment>
+    </div>
+</div>

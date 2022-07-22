@@ -1,0 +1,13 @@
+<div class='commentSection'>
+
+    <div class='header'>
+        <span class='commentCount'>{{Comment.allComments.length}} Comments</span>
+        <comment-form [buttonTxt]=buttonTxt [profilePic]=profilePic (newCommentEvent)="postComment($event)"></comment-form>
+        
+    </div>
+
+    <div class='comments'>
+        <comment [(commentsArr)]=commentsArr></comment>
+    </div>
+
+</div>

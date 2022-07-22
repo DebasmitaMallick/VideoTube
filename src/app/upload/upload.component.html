@@ -1,0 +1,36 @@
+<app-header></app-header>
+<section class="section">
+   <form (ngSubmit)="submitForm()" #uploadform="ngForm">
+     <div class='form-group'>
+       <label for='exampleFormControlFile1'>Your file</label>
+       <input type='file' class='form-control-file' id='exampleFormControlFile1' name='fileInput'[(ngModel)]="uploadModel.file" #fileInput="ngModel" required>
+       <small *ngIf="fileInput.invalid && fileInput.touched" class="text-danger">This Field is Required</small> 
+      </div>
+     <div class='form-group'>
+       <input class='form-control' type='text' placeholder='Title' name='titleInput' [(ngModel)]="uploadModel.title" #titleInput="ngModel" required>
+       <small *ngIf="titleInput.invalid && titleInput.touched" class="text-danger">Title is Required</small> 
+      </div>
+     <div class='form-group'>
+       <textarea class='form-control' placeholder='Description' name='descriptionInput' rows='3'  [(ngModel)]="uploadModel.description" #descriptionInput="ngModel" required>value</textarea>
+       <small *ngIf="descriptionInput.invalid && descriptionInput.touched" class="text-danger">Value is Required</small> 
+      </div>
+     <div class='form-group'>
+         <select class='form-control' name='privacyInput' [(ngModel)]="uploadModel.videotype" #videotypeInput="ngModel" [class.is-invalid]="videotypeInput.invalid && videotypeInput.touched" required>
+           <option value="">Choose an option</option>
+           <option *ngFor="let video of videos">{{ video }}</option>
+         </select>
+         <small  *ngIf="videotypeInput.invalid && videotypeInput.touched" class="text-danger">This Field is Required</small> 
+      </div>
+     <div class='form-group'>
+         <select class='form-control' name='categoryInput' [(ngModel)]="uploadModel.category" #categoryInput="ngModel" [class.is-invalid]="categoryInput.invalid && categoryInput.touched" required>
+          <option value="">Choose an option</option>
+          <option *ngFor="let name of categoryList">
+            {{ name.category }}
+          </option>
+         </select>
+         <small *ngIf="categoryInput.invalid && categoryInput.touched" class="text-danger">Name is Required</small> 
+      </div>
+     <button type='submit' class='btn btn-primary mx-1' name='uploadButton' [disabled]="uploadform.invalid">Upload</button>
+     <button type='submit' class='btn btn-primary' name='saveButton'>Save</button>
+   </form>
+</section>

@@ -1,0 +1,30 @@
+.cancelComment {
+    height: 36px;
+    background-color: #2692e6;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    padding: 0 15px;
+    border-radius: 2px;
+    outline: none !important;
+    cursor: pointer;
+}
+
+textarea:focus{
+    outline: none;
+    border-bottom: 1px #a59999 solid !important;
+}
+
+.cancelComment {
+    background-color: transparent;
+    color: rgba(17,17,17,0.6);
+}
+
+.cancelComment:hover {
+    color:#000;
+}
+
+/* .commentActive{
+    border-bottom: 1px #a59999 solid !important;
+
+} */
